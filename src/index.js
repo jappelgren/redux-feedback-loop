@@ -33,12 +33,12 @@ const feedbackReducer = (state = '', action) => {
     }
 }
 
-createStore(
+const storeInstance = createStore(
     combineReducers({
         scoreReducer,
         feedbackReducer
-    })
+    }), applyMiddleware(logger)
 )
 
-ReactDOM.render(<Provider><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
