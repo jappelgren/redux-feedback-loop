@@ -10,13 +10,13 @@ import { Provider } from 'react-redux'
 const scoreReducer = (state = { feeling: 0, understanding: 0, support: 0 }, action) => {
     switch (action.type) {
         case 'SET_FEELING':
-            return state.feeling = action.payload
+            return Object.assign(state, { feeling: action.payload })
 
         case 'SET_UNDERSTANDING':
-            return state.understanding = action.payload
+            return Object.assign(state, { understanding: action.payload })
 
         case 'SET_SUPPORT':
-            return state.support = action.payload
+            return Object.assign(state, { support: action.payload })
 
         default:
             return state
