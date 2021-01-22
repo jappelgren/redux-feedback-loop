@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
 
 const customIcons = {
     1: {
@@ -45,7 +46,13 @@ IconContainer.propTypes = {
 
 export default function FeelingRating() {
     const [value, setValue] = useState(0);
+    const [disabled, setDisabled] = useState(true)
 
+    const handleRating = (event) => {
+        setValue(event);
+        setDisabled(false)
+    }
+    console.log(value)
     return (
         <div>
             <form>
@@ -58,12 +65,12 @@ export default function FeelingRating() {
                         IconContainerComponent={IconContainer}
                         value={value}
                         onChange={(event, newValue) => {
-                            setValue(newValue);
+                            handleRating(newValue);
                         }}
                     />
                 </Box>
 
-                <button type="submit">Next</button>
+                <Button disabled={disabled} variant="contained" color="primary">Next</Button>
             </form>
         </div>
     )
