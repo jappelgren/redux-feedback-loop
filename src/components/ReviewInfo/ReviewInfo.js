@@ -21,7 +21,7 @@ export default function ReviewInfo() {
         })
     }
     return (
-        <div>
+        <div className="review-container">
             <Typography variant="h4">Review Your Feedback</Typography>
             <List component="nav" aria-label="main mailbox folders">
                 <ListItem button>

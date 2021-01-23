@@ -16,7 +16,7 @@ export default function FeedbackForm() {
     }
     console.log(feedbackReducer)
     return (
-        <div>
+        <div className="feedback-container">
             <form>
                 <Typography variant="h4">Any comments you want to leave?</Typography>
                 <br />

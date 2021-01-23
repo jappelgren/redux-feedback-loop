@@ -71,7 +71,6 @@ export default function FeelingRating() {
         dispatch({ type: 'SET_FEELING', payload: value })
         history.push(route)
     }
-    console.log(value)
 
     return (
         <div>

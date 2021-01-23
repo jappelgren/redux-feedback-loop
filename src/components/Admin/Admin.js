@@ -49,7 +49,7 @@ export default function Admin() {
     }, [])
 
     return (
-        <div>
+        <div className="table-container">
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead>

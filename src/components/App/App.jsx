@@ -9,21 +9,38 @@ import SubmitConfirm from '../SubmitConfirm/SubmitConfirm';
 import SupportRating from '../SupportRating/SupportRating';
 import UnderstandingRating from '../UnderstandingRating/UnderstandingRating';
 import Admin from '../Admin/Admin';
+import { ThemeProvider } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core/styles';
+import lightGreen from '@material-ui/core/colors/lightGreen';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: lightGreen[700],
+    },
+    secondary: {
+      main: '#95379e',
+    },
+  },
+  spacing: 6,
+});
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Route path="/" exact component={FeelingRating} />
-        <Route path="/support" component={SupportRating} />
-        <Route path="/understanding" component={UnderstandingRating} />
-        <Route path="/feedback" component={FeedbackForm} />
-        <Route path="/review" component={ReviewInfo} />
-        <Route path="/confirm" component={SubmitConfirm} />
-        <Route path="/admin" component={Admin} />
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className="App">
+          <Header />
+          <Route path="/" exact component={FeelingRating} />
+          <Route path="/support" component={SupportRating} />
+          <Route path="/understanding" component={UnderstandingRating} />
+          <Route path="/feedback" component={FeedbackForm} />
+          <Route path="/review" component={ReviewInfo} />
+          <Route path="/confirm" component={SubmitConfirm} />
+          <Route path="/admin" component={Admin} />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
