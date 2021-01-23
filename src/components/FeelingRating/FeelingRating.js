@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Rating from '@material-ui/lab/Rating';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
