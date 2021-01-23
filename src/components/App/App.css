@@ -48,3 +48,7 @@ h4 {
 .spacer {
   width: 2rem;
 }
+
+.text {
+  justify-self: center;
+}

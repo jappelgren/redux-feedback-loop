@@ -89,7 +89,9 @@ export default function FeelingRating() {
             <Typography variant="h4">How are you feeling today</Typography>
             <br />
             <Box component="fieldset" mb={3} borderColor="transparent">
-                <Typography component="legend">Feeling?</Typography>
+                <div className="text-container">
+                    <Typography component="legend">Feeling?</Typography>
+                </div>
                 <Rating
                     name="simple-controlled"
                     getLabelText={(value) => customIcons[value].label}

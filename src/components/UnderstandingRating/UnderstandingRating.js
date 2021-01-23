@@ -82,7 +82,9 @@ export default function UnderstandingRating() {
             <Typography variant="h4">How well are you understanding the content</Typography>
             <br />
             <Box component="fieldset" mb={3} borderColor="transparent">
-                <Typography component="legend">Understanding?</Typography>
+                <div className="text-container">
+                    <Typography component="legend">Understanding?</Typography>
+                </div>
                 <Rating
                     name="simple-controlled"
                     getLabelText={(value) => customIcons[value].label}

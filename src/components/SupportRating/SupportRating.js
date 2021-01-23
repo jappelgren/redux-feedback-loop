@@ -83,7 +83,9 @@ export default function SupportRating() {
             <Typography variant="h4">How well are you being supported?</Typography>
             <br />
             <Box component="fieldset" mb={3} borderColor="transparent">
-                <Typography component="legend">Support?</Typography>
+                <div className="text-container">
+                    <Typography component="legend">Support?</Typography>
+                </div>
                 <Rating
                     name="simple-controlled"
                     getLabelText={(value) => customIcons[value].label}
