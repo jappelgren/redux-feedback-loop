@@ -22,7 +22,7 @@ To get the app up and running on your machine follow these steps.
 
 ## Usage
 
-Go to localhost:3000. You will be greeted with your first question. Answer all the questions and submit the answers. If you would like to see the admin page navigate to [localhost:3000/admin](http://localhost:3000/#/admin).
+Go to localhost:3000. You will be greeted with your first question. Answer all questions and submit. If you would like to see the admin page navigate to [localhost:3000/admin](http://localhost:3000/#/admin).
 
 ## Built With
 
