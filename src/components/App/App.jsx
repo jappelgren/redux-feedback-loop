@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Route path="/feelings" component={FeelingRating} />
+        <Route path="/" exact component={FeelingRating} />
         <Route path="/support" component={SupportRating} />
         <Route path="/understanding" component={UnderstandingRating} />
         <Route path="/feedback" component={FeedbackForm} />
