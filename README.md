@@ -18,8 +18,16 @@ To get the app up and running on your machine follow these steps.
 4. Run `npm install` to install all necessary dependencies.
 5. `npm run server` to start the server.
 6. `npm run client` to start the client.
-7. In your browser go to [localhost:3000](localhost:3000/).
+7. In your browser go to [localhost:3000](http://localhost:3000/).
 
 ## Usage
+Go to localhost:3000.  You will be greeted with your first question.  Answer all the questions and submit the answers.  If you would like to see the admin page navigate to [localhost:3000/admin](http://localhost:3000/admin).
 
 ## Built With
+[React](https://reactjs.org/)
+[Redux](https://redux.js.org/)
+[Material-UI](https://material-ui.com/)
+[PG](https://node-postgres.com/)
+[Node](https://nodejs.org/en/)
+[Express](https://expressjs.com/)
+[React-Router](https://reactrouter.com/)
