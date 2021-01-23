@@ -12,6 +12,7 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+//customIcons is an object that stores the Material-UI icons displayed on the ratings page.
 const customIcons = {
     1: {
         icon: <SentimentVeryDissatisfiedIcon />,
@@ -35,6 +36,7 @@ const customIcons = {
     },
 };
 
+//IconContainer is how Material-UI creates the rating component.
 function IconContainer(props) {
     const { value, ...other } = props;
     return <span {...other}>{customIcons[value].icon}</span>;
@@ -46,15 +48,24 @@ IconContainer.propTypes = {
 
 
 export default function FeelingRating() {
+    //value stores the rating selected by the user in local state.
     const [value, setValue] = useState(0);
+    //disabled on loaf is true.  This state is sent to the disabled prop on the next button. Making sure
+    //a user inputs a value before proceeding to the next step.
     const [disabled, setDisabled] = useState(true)
+    //buttonText is 'Next' by default.  If all the necessary information is entered the button will change to Done Editing.
     const [buttonText, setButtonText] = useState('Next')
+    //route is by default the next part of the feedback form.  If you are editing a previously answered question, the done editing button
+    //will direct the user to ReviewInfo component.
     const [route, setRoute] = useState('/understanding')
 
     const history = useHistory()
     const dispatch = useDispatch()
     const reducers = useSelector(state => state)
 
+    //handleRating sets the value to be sent to the scoreReducer in Redux, sets the next button to enabled.  
+    //handleRating also checks to see if all other info in the form exists and if it does will change the next button.
+    //to done editing and will redirect the user to ReviewInfo component
     const handleRating = (event) => {
         setValue(event);
         setDisabled(false)
@@ -67,6 +78,7 @@ export default function FeelingRating() {
         }
     }
 
+    //handleSubmit sends the value to the scoreReducer in Redux and directs the user to the next piece of the form.
     const handleSubmit = () => {
         dispatch({ type: 'SET_FEELING', payload: value })
         history.push(route)

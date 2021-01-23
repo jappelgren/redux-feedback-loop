@@ -4,9 +4,15 @@ import EditIcon from '@material-ui/icons/Edit';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
+//ReviewInfo lets the user confirm their answers.  If something is wrong or needs editing the user can click the 
+//edit button and re-answer that particular question.  When they are done editing that entry the user will be sent back
+//to this page.
 export default function ReviewInfo() {
     const feedbackData = useSelector(state => state)
     const history = useHistory()
+
+    //handleSubmit sends a post request to the database and stores all the collected info.  All info 
+    //is pulled from the reducers in Redux.  The user is sent to the SubmitConfirm component on submit.
     const handleSubmit = () => {
         axios.post('/api/feedback', {
             feeling: feedbackData.scoreReducer.feeling,

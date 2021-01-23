@@ -11,6 +11,8 @@ import Paper from '@material-ui/core/Paper';
 import AdminItem from "../AdminItem/AdminItem";
 
 export default function Admin() {
+
+    //feedback state stores an array of feedback items fetched from the database by the fetchFeedback function
     const [feedback, setFeedback] = useState([])
 
     const fetchFeedback = () => {
@@ -22,6 +24,7 @@ export default function Admin() {
             })
     }
 
+    //Runs fetchFeedback on page load
     useEffect(() => {
         fetchFeedback()
     }, [])

@@ -9,6 +9,9 @@ import TableRow from '@material-ui/core/TableRow';
 
 
 export default function AdminItem({ entry, fetchFeedback }) {
+
+    //handleDelete sends a delete request to the database and removes the specified entry by unique id
+    //After the delete the table will refresh with updated info.
     const handleDelete = (event) => {
         axios.delete(`/api/feedback/${event}`)
             .then((response) => {
@@ -19,6 +22,9 @@ export default function AdminItem({ entry, fetchFeedback }) {
             })
     }
 
+    //handleFlag sends a put request to the database.  Pressing the flag button will toggle the 
+    //flagged value from false to true and vice versa on the database. The table is refreshed after each
+    //toggle
     const handleFlag = (event) => {
         axios.put(`/api/feedback/${event.id}`, { flagged: event.flagged })
             .then((response) => {
@@ -28,9 +34,12 @@ export default function AdminItem({ entry, fetchFeedback }) {
                 console.error(err)
             ])
     }
+
+
     return (
         <TableRow key={entry.id}>
             <TableCell align="left">
+                {/* Ternary checks if flagged value is true or false on database and displays a flag icon on dom if true */}
                 {entry.flagged ? (<FlagIcon color="secondary" />) : ''}
             </TableCell>
             <TableCell align="left">{entry.feeling}</TableCell>
@@ -38,7 +47,6 @@ export default function AdminItem({ entry, fetchFeedback }) {
             <TableCell align="left">{entry.support}</TableCell>
             <TableCell align="left">{entry.comments}</TableCell>
             <TableCell align="left">
-
                 <IconButton onClick={() => handleFlag({ id: entry.id, flagged: !entry.flagged })} edge="start" size="small">
                     <FlagIcon />
                 </IconButton>

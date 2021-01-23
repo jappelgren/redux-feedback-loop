@@ -13,6 +13,7 @@ import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 
+//A simple theme for material ui.  Changes primary, secondary color and spacing.
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -27,6 +28,7 @@ const theme = createMuiTheme({
 
 function App() {
   return (
+    // ThemeProvider makes the custom theme available to all children components
     <ThemeProvider theme={theme}>
       <Router>
         <div className="App">

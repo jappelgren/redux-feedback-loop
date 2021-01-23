@@ -12,6 +12,10 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+//SupportRating, UnderstandingRating and FeelingRating are all mostly identical in functionality.
+//All comments about these components live in FeelingRating.  The on element that FeelingRating doesn't
+//have is a previous button.  The previous button takes you to the previous page and lets you edit your values.
+
 const customIcons = {
     1: {
         icon: <SentimentVeryDissatisfiedIcon />,
