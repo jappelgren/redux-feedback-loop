@@ -1,8 +1,18 @@
+import { Button } from "@material-ui/core"
+import { useDispatch } from "react-redux"
+import { useHistory } from "react-router-dom"
+
 export default function SubmitConfirm() {
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const handleClick = () => {
+        dispatch({ type: 'RESET_ALL' })
+        history.push('/')
+    }
     return (
         <div>
             <h1>Thank You!</h1>
-            <button>Leave New Feedback</button>
+            <Button onClick={handleClick} variant="contained" color="primary" type="submit">Leave New Feedback</Button>
         </div>
     )
 }

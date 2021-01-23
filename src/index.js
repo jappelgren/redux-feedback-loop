@@ -18,6 +18,9 @@ const scoreReducer = (state = { feeling: 0, understanding: 0, support: 0 }, acti
         case 'SET_SUPPORT':
             return Object.assign(state, { support: action.payload })
 
+        case 'RESET_ALL':
+            return Object.assign(state, { feeling: 0, understanding: 0, support: 0 })
+
         default:
             return state
     }
@@ -27,6 +30,9 @@ const feedbackReducer = (state = '', action) => {
     switch (action.type) {
         case 'SET_FEEDBACK':
             return action.payload
+
+        case 'RESET_ALL':
+            return ''
 
         default:
             return state
