@@ -18,7 +18,7 @@ To get the app up and running on your machine follow these steps.
 4. Run `npm install` to install all necessary dependencies.
 5. `npm run server` to start the server.
 6. `npm run client` to start the client.
-7. In your browser go to localhost:3000/.
+7. In your browser go to (localhost:3000/).
 
 ## Usage
 
