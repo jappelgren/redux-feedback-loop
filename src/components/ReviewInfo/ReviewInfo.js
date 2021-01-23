@@ -1,5 +1,5 @@
 import { Button, List, ListItem, ListItemText, Typography, IconButton } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import EditIcon from '@material-ui/icons/Edit';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -9,10 +9,12 @@ import axios from "axios";
 //to this page.
 export default function ReviewInfo() {
     const feedbackData = useSelector(state => state)
+    const dispatch = useDispatch()
     const history = useHistory()
 
     //handleSubmit sends a post request to the database and stores all the collected info.  All info 
     //is pulled from the reducers in Redux.  The user is sent to the SubmitConfirm component on submit.
+    //All reducers are set back to default values.
     const handleSubmit = () => {
         axios.post('/api/feedback', {
             feeling: feedbackData.scoreReducer.feeling,
@@ -21,6 +23,7 @@ export default function ReviewInfo() {
             comments: feedbackData.feedbackReducer
         }).then((response) => {
             console.log(response)
+            dispatch({ type: 'RESET_ALL' })
             history.push('/confirm')
         }).catch((err) => {
             console.error(err)
