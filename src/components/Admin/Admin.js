@@ -8,11 +8,22 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Button } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
 import FlagIcon from '@material-ui/icons/Flag';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 export default function Admin() {
     const [feedback, setFeedback] = useState([])
+
+    const handleDelete = (event) => {
+        axios.delete(`/api/feedback/${event}`)
+            .then((response) => {
+                console.log(response)
+                fetchFeedback()
+            }).catch((err) => {
+                console.error(err)
+            })
+    }
 
     const handleFlag = (event) => {
         axios.put(`/api/feedback/${event.id}`, { flagged: event.flagged })
@@ -48,7 +59,7 @@ export default function Admin() {
                             <TableCell align="left">Understanding</TableCell>
                             <TableCell align="left">Support</TableCell>
                             <TableCell align="left">Comments</TableCell>
-                            <TableCell align="left"></TableCell>
+                            <TableCell align="left">Flag/Delete</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -62,7 +73,14 @@ export default function Admin() {
                                 <TableCell align="left">{entry.support}</TableCell>
                                 <TableCell align="left">{entry.comments}</TableCell>
                                 <TableCell align="left">
-                                    <Button onClick={(event) => handleFlag({ id: entry.id, flagged: !entry.flagged })} variant="outlined" size="small" color="secondary">Flag Feedback</Button>
+                                    <span>
+                                        <IconButton onClick={() => handleFlag({ id: entry.id, flagged: !entry.flagged })} variant="outlined" size="small">
+                                            <FlagIcon />
+                                        </IconButton>
+                                        <IconButton onClick={() => handleDelete(entry.id)} variant="outlined" size="small" color="secondary">
+                                            <DeleteForeverIcon color="secondary" />
+                                        </IconButton>
+                                    </span>
                                 </TableCell>
                             </TableRow>
                         ))}

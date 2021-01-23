@@ -33,7 +33,6 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     const id = req.params.id
-    console.log(id)
 
     const queryText = `
     UPDATE "feedback"
@@ -44,10 +43,27 @@ router.put('/:id', (req, res) => {
 
     pool.query(queryText, queryArr)
         .then((result) => {
-            console.log(result)
-            res.sendStatus(201)
+            res.sendStatus(200)
         }).catch((err) => {
             res.sendStatus(500)
         })
 })
+
+router.delete('/:id', (req, res) => {
+    const id = req.params.id
+
+    const queryText = `
+    DELETE FROM "feedback"
+    WHERE "id" = $1;
+    `
+    const queryArr = [id]
+
+    pool.query(queryText, queryArr)
+        .then((result) => {
+            res.sendStatus(200)
+        }).catch((err) => {
+            res.sendStatus(500)
+        })
+})
+
 module.exports = router;
