@@ -22,7 +22,7 @@ const theme = createMuiTheme({
       main: '#95379e',
     },
   },
-  spacing: 6,
+  spacing: 10,
 });
 
 function App() {

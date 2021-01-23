@@ -90,9 +90,11 @@ export default function SupportRating() {
                     }}
                 />
             </Box>
-
-            <Button onClick={handleSubmit} disabled={disabled} variant="contained" color="primary">{buttonText}</Button>
-
+            <span className="btn-container">
+                <Button onClick={() => history.push('/understanding')} variant="contained" color="primary">Previous</Button>
+                <div className="spacer"></div>
+                <Button onClick={handleSubmit} disabled={disabled} variant="contained" color="primary">{buttonText}</Button>
+            </span>
         </div>
     )
 }

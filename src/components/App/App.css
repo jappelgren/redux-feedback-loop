@@ -38,3 +38,13 @@ h4 {
 .table-container {
   padding: 5%;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.spacer {
+  width: 2rem;
+}

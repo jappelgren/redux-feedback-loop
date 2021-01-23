@@ -31,7 +31,11 @@ export default function FeedbackForm() {
                     onChange={(event) => setValue(event.target.value)}
                     required={true}
                 />
-                <Button onClick={handleSubmit} variant="contained" color="primary" type="submit">Next</Button>
+                <span className="btn-container">
+                    <Button onClick={() => history.push('/support')} variant="contained" color="primary">Previous</Button>
+                    <div className="spacer"></div>
+                    <Button onClick={handleSubmit} variant="contained" color="primary" type="submit">Next</Button>
+                </span>
             </form>
         </div>
     )
