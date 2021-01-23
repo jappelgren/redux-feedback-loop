@@ -73,14 +73,14 @@ export default function Admin() {
                                 <TableCell align="left">{entry.support}</TableCell>
                                 <TableCell align="left">{entry.comments}</TableCell>
                                 <TableCell align="left">
-                                    <span>
-                                        <IconButton onClick={() => handleFlag({ id: entry.id, flagged: !entry.flagged })} variant="outlined" size="small">
-                                            <FlagIcon />
-                                        </IconButton>
-                                        <IconButton onClick={() => handleDelete(entry.id)} variant="outlined" size="small" color="secondary">
-                                            <DeleteForeverIcon color="secondary" />
-                                        </IconButton>
-                                    </span>
+
+                                    <IconButton onClick={() => handleFlag({ id: entry.id, flagged: !entry.flagged })} edge="start" size="small">
+                                        <FlagIcon />
+                                    </IconButton>
+                                    <IconButton onClick={() => handleDelete(entry.id)} size="small" color="secondary" edge="end">
+                                        <DeleteForeverIcon color="secondary" />
+                                    </IconButton>
+
                                 </TableCell>
                             </TableRow>
                         ))}
