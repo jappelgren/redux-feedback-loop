@@ -10,7 +10,7 @@ import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const customIcons = {
     1: {
@@ -49,17 +49,29 @@ IconContainer.propTypes = {
 export default function SupportRating() {
     const [value, setValue] = useState(0);
     const [disabled, setDisabled] = useState(true)
+    const [buttonText, setButtonText] = useState('Next')
+    const [route, setRoute] = useState('/feedback')
+
     const history = useHistory()
     const dispatch = useDispatch()
+    const reducers = useSelector(state => state)
 
     const handleRating = (event) => {
         setValue(event);
         setDisabled(false)
+        if (reducers.scoreReducer.feeling > 0
+            && reducers.scoreReducer.support > 0
+            && reducers.scoreReducer.understanding > 0
+            && reducers.feedbackReducer.length > 0) {
+            setButtonText('Done Editing')
+            setRoute('/review')
+        }
     }
+
 
     const handleSubmit = () => {
         dispatch({ type: 'SET_SUPPORT', payload: value })
-        history.push('/feedback')
+        history.push(route)
     }
     console.log(value)
     return (
@@ -79,7 +91,7 @@ export default function SupportRating() {
                 />
             </Box>
 
-            <Button onClick={handleSubmit} disabled={disabled} variant="contained" color="primary">Next</Button>
+            <Button onClick={handleSubmit} disabled={disabled} variant="contained" color="primary">{buttonText}</Button>
 
         </div>
     )

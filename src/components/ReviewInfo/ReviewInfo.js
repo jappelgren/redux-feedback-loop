@@ -2,12 +2,13 @@ import { Button, List, ListItem, ListItemIcon, ListItemText, Typography, IconBut
 import { useSelector } from "react-redux";
 import EditIcon from '@material-ui/icons/Edit';
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 export default function ReviewInfo() {
     const feedbackData = useSelector(state => state)
     const history = useHistory()
     const handleSubmit = () => {
-
+        axios.post('/')
     }
     return (
         <div>

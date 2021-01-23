@@ -1,10 +1,11 @@
 import { Button, TextField, Typography } from "@material-ui/core";
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 
 export default function FeedbackForm() {
-    const [value, setValue] = useState('');
+    const feedbackReducer = useSelector(state => state.feedbackReducer)
+    const [value, setValue] = useState(feedbackReducer);
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -13,7 +14,7 @@ export default function FeedbackForm() {
         dispatch({ type: 'SET_FEEDBACK', payload: value })
         history.push('/review')
     }
-
+    console.log(feedbackReducer)
     return (
         <div>
             <form>
